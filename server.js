@@ -1,6 +1,7 @@
 // Dependencies
 const express = require('express');
 const mongoose = require('mongoose');
+const postsRouter = require('./controllers/posts');
 // Initialize the app
 const app = express();
 
@@ -26,6 +27,8 @@ db.on('error', (err) => console.log(`MongoDB Error: ${err.message}`));
 app.get('/', (req, res) => {
     res.send('Homepage!');
 });
+
+app.use(postsRouter);
 
 // Tell the app to listen
 app.listen(PORT, () => {
