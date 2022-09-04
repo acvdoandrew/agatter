@@ -1,14 +1,20 @@
 // Dependencies
 const express = require('express');
-
+const mongoose = require('mongoose');
 // Initialize the app
 const app = express();
 
 // Configure settings
 require('dotenv').config();
-const PORT = process.env.PORT
+const PORT = process.env.PORT;
+const DATABASE_URI = process.env.DATABASE_URI;
+const db = mongoose.connection;
 
 // Connect to MongoDB
+mongoose.connect(DATABASE_URI);
+// MongoDB connected and error event listeners
+db.on('connected', () => console.log('Connected to MongoDB'));
+db.on('error', (err) => console.log(`MongoDB Error: ${err.message}`));
 
 // Mount middleware
 
