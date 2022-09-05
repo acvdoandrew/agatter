@@ -14,4 +14,12 @@ router.get('/seed', (req, res) => {
     });
 });
 
+// INDUCES
+// Index Route
+router.get('/posts', (req, res) => {
+    Post.find({}, (err, posts) => {
+        res.render('posts/index.ejs', {posts});
+    });
+});
+
 module.exports = router;
