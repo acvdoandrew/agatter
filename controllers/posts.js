@@ -36,10 +36,24 @@ router.delete('/posts/:id', (req, res) => {
     });
 });
 
+// Update Route
+router.put('/posts/:id', (req, res) => {
+    Post.findByIdAndUpdate(req.params.id, req.body, (err, oldPost) => {
+        res.redirect(`/posts/${req.params.id}`);
+    });
+});
+
 // Create Route
 router.post('/posts', (req, res) => {
     Post.create(req.body, (err, createdPost) => {
         res.redirect('/posts');
+    });
+});
+
+// Edit Route
+router.get('/posts/:id/edit', (req, res) => {
+    Post.findById(req.params.id, (err, foundPost) => {
+        res.render('posts/edit.ejs', {foundPost});
     });
 });
 
