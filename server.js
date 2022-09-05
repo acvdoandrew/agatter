@@ -1,6 +1,7 @@
 // Dependencies
 const express = require('express');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 const postsRouter = require('./controllers/posts');
 // Initialize the app
 const app = express();
@@ -21,6 +22,7 @@ db.on('error', (err) => console.log(`MongoDB Error: ${err.message}`));
 
 // Body parser middleware
 app.use(express.urlencoded({ extended: false}));
+app.use(methodOverride('_method'));
 
 // Session middleware
 
