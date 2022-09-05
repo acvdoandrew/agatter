@@ -22,4 +22,11 @@ router.get('/posts', (req, res) => {
     });
 });
 
+// Show Route
+router.get('/posts/:id', (req, res) => {
+    Post.findById((req.params.id), (err, foundPost) => {
+        res.render('posts/show.ejs', {foundPost});
+    });
+});
+
 module.exports = router;
