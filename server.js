@@ -28,7 +28,7 @@ app.use(methodOverride('_method'));
 
 // Homepage route
 app.get('/', (req, res) => {
-    res.send('Homepage!');
+    res.redirect('/posts');
 });
 
 app.use(postsRouter);
