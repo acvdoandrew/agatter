@@ -7,6 +7,9 @@
     <title>Edit Post | Agatter</title>
 </head>
 <body>
+    <a href="/posts">
+        <h1>Agatter</h1>
+    </a>
     <h2>Edit your Post</h2>
     <form action="/posts/<%= foundPost._id %>?_method=PUT" method="POST">
         <textarea name="content" cols="30" rows="10"><%= foundPost.content %></textarea>
