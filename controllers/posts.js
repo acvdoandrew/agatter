@@ -29,6 +29,13 @@ router.get('/posts/new', (req, res) => {
     });
 });
 
+// Delete Route
+router.delete('/posts/:id', (req, res) => {
+    Post.findByIdAndDelete(req.params.id, (err, deletedPost) => {
+        res.redirect('/posts');
+    });
+});
+
 // Create Route
 router.post('/posts', (req, res) => {
     Post.create(req.body, (err, createdPost) => {
