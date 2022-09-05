@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agatter</title>
+</head>
+<body>
+    <h1>Agatter</h1>
+    <div class="new-post-box">
+        <form action="">
+            <textarea name="content" cols="30" rows="10" placeholder="What's happening?"></textarea>
+            <input type="submit" value="Agatte">
+            <a href="/posts">Cancel</a>
+        </form>
+    </div>
+    <% posts.forEach(p => { %>
+        <a href="/posts/<%= p._id %>">
+            <div class="content-wrapper">
+                <p> <%= p.content %></p>
+            </div>
+        </a>
+    <% }) %>
+</body>
+</html>

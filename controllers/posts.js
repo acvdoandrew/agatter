@@ -22,6 +22,13 @@ router.get('/posts', (req, res) => {
     });
 });
 
+// New Route
+router.get('/posts/new', (req, res) => {
+    Post.find({}, (err, posts) => {
+        res.render('posts/new.ejs', {posts});
+    });
+});
+
 // Show Route
 router.get('/posts/:id', (req, res) => {
     Post.findById((req.params.id), (err, foundPost) => {
