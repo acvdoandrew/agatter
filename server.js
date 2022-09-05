@@ -20,6 +20,7 @@ db.on('error', (err) => console.log(`MongoDB Error: ${err.message}`));
 // Mount middleware
 
 // Body parser middleware
+app.use(express.urlencoded({ extended: false}));
 
 // Session middleware
 
