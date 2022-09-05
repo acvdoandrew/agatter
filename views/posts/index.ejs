@@ -9,7 +9,11 @@
 <body>
     <h1>Agatter</h1>
     <% posts.forEach(p => { %>
-        <p> <%= p.content %></p>
+        <a href="/posts/<%= p._id %>">
+            <div class="content-wrapper">
+                <p> <%= p.content %></p>
+            </div>
+        </a>
     <% }) %>
 </body>
 </html>
