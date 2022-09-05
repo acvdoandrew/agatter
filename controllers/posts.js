@@ -29,6 +29,13 @@ router.get('/posts/new', (req, res) => {
     });
 });
 
+// Create Route
+router.post('/posts', (req, res) => {
+    Post.create(req.body, (err, createdPost) => {
+        res.redirect('/posts');
+    });
+});
+
 // Show Route
 router.get('/posts/:id', (req, res) => {
     Post.findById((req.params.id), (err, foundPost) => {
