@@ -5,7 +5,7 @@ const User = require('../models/user');
 
 // Signup Page
 router.get('/signup', (req, res) => {
-    res.send('This is the signup page!');
+    res.render('users/signup.ejs');
 });
 
 module.exports = router;
