@@ -14,7 +14,11 @@
     <% posts.forEach(p => { %>
         <a href="/posts/<%= p._id %>">
             <div class="content-wrapper">
-                <p> <%= p.content %></p>
+                <p>
+                    <%= p.content %>
+                    -
+                    <span>By: <%= p.addedBy.username %></span>
+                </p>
             </div>
         </a>
     <% }) %>

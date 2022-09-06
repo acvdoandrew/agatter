@@ -17,7 +17,7 @@ router.get('/seed', (req, res) => {
 // INDUCES
 // Index Route
 router.get('/posts', (req, res) => {
-    Post.find({}, (err, posts) => {
+    Post.find({}).populate('addedBy').exec((err, posts) => {
         res.render('posts/index.ejs', {posts});
     });
 });
