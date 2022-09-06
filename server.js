@@ -33,13 +33,38 @@ app.use(expressSession({
     saveUninitialized: false
 }));
 
+// Authorization middleware
+const User = require('./models/user');
+
+app.use((req, res, next) => {
+    if(req.session.userId) {
+        User.findById(req.session.userId, (err, user) => {
+            req.user = user;
+            res.locals.user = {
+                username: user.username,
+                _id: user._id
+            };
+            next();
+        });
+    } else {
+        res.locals.user = null;
+        res.user = null;
+        next();
+    }
+});
+
+function isAuthenticated(req, res, next) {
+    if(!req.user) return res.redirect('/login');
+    next();
+};
+
 // Homepage route
 app.get('/', (req, res) => {
     res.redirect('/posts');
 });
 
 app.use(usersRouter);
-app.use(postsRouter);
+app.use(isAuthenticated, postsRouter);
 
 // Tell the app to listen
 app.listen(PORT, () => {
