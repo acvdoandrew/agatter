@@ -30,7 +30,7 @@ router.post('/login', (req, res) => {
         } 
         const isMatch = bcrypt.compareSync(req.body.password, foundUser.password);
         if(!isMatch) {
-            return res.render('user/login.ejs', {error: 'Incorrect Credentials'});
+            return res.render('users/login.ejs', {error: 'Incorrect Credentials'});
         }
         req.session.userId = foundUser._id;
         res.redirect('/posts');
