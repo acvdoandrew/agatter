@@ -16,6 +16,24 @@
         </form>
         <a href="/posts/<%= foundPost._id %>/edit">Edit this Post</a>
     </div>
+    <div class="replies-wrapper">
+        <h3>Replies</h3>
+        <% foundPost.replies.forEach( r => { %>
+            <div class="reply-content">
+                <p>
+                    <%= r.content %>
+                </p>
+            </div>
+        <% }); %>
+        <div class="reply-box">
+            <form action="/posts/<%= foundPost._id%>/replies" method="POST">
+                <label>
+                    <textarea name="content" cols="30" rows="10" placeholder="Write your reply here"></textarea>
+                </label><br>
+                <input type="submit" value="Reply">
+            </form>
+        </div>
+    </div>
     <a href="/posts">Back</a>
 </body>
 </html>

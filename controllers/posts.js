@@ -65,4 +65,15 @@ router.get('/posts/:id', (req, res) => {
     });
 });
 
+// Nested Resource Route | Posts and Replies
+router.post('/posts/:id/replies', (req, res) => {
+    req.body.addedBy = req.user._id;
+    Post.findById(req.params.id, (err, foundPost) => {
+        foundPost.replies.push(req.body);
+        foundPost.save((err, savedPost) => {
+            res.redirect(`/posts/${req.params.id}`);
+        });
+    });
+});
+
 module.exports = router;
