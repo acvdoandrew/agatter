@@ -22,4 +22,19 @@ router.get('/login', (req, res) => {
     res.render('users/login.ejs', {error: null});
 });
 
+// Login Create
+router.post('/login', (req, res) => {
+    User.findOne({username: req.body.username}, (err, foundUser) => {
+        if(!foundUser) {
+            return res.render('users/login.ejs', {error: 'Incorrect Credentials!'});
+        } 
+        const isMatch = bcrypt.compareSync(req.body.password, foundUser.password);
+        if(!isMatch) {
+            return res.render('user/login.ejs', {error: 'Incorrect Credentials'});
+        }
+        req.session.userId = foundUser._id;
+        res.redirect('/posts');
+    });
+});
+
 module.exports = router;
