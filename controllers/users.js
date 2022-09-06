@@ -17,4 +17,9 @@ router.post('/signup', (req, res) => {
     });
 });
 
+// Login Page
+router.get('/login', (req, res) => {
+    res.render('users/login.ejs', {error: null});
+});
+
 module.exports = router;
