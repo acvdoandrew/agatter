@@ -45,6 +45,7 @@ router.put('/posts/:id', (req, res) => {
 
 // Create Route
 router.post('/posts', (req, res) => {
+    req.body.addedBy = req.user._id;
     Post.create(req.body, (err, createdPost) => {
         res.redirect('/posts');
     });
