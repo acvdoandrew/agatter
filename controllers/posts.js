@@ -17,7 +17,7 @@ router.get('/seed', (req, res) => {
 // INDUCES
 // Index Route
 router.get('/posts', (req, res) => {
-    Post.find({}).populate('addedBy').exec((err, posts) => {
+    Post.find({}).populate('addedBy').sort({ createdAt: 'desc' }).exec((err, posts) => {
         res.render('posts/index.ejs', {posts});
     });
 });
@@ -66,10 +66,24 @@ router.get('/posts/:id', (req, res) => {
 });
 
 // Nested Resource Route | Posts and Replies
+// Create Reply
 router.post('/posts/:id/replies', (req, res) => {
     req.body.addedBy = req.user._id;
     Post.findById(req.params.id, (err, foundPost) => {
         foundPost.replies.push(req.body);
+        foundPost.save((err, savedPost) => {
+            res.redirect(`/posts/${req.params.id}`);
+        });
+    });
+});
+
+// Update Post due to deletion of Reply
+router.put('/posts/:id/:rId', (req, res) => {
+    const replyId = req.params.rId;
+    Post.findById(req.params.id, (err, foundPost) => {
+        // const foundReply = foundPost.replies.find(r => r._id === replyId);
+        const filteredReplies = foundPost.replies.filter(r => !r._id.equals(replyId));
+        foundPost.replies = filteredReplies;
         foundPost.save((err, savedPost) => {
             res.redirect(`/posts/${req.params.id}`);
         });
