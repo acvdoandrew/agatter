@@ -26,7 +26,7 @@
             <div class="reply-content">
                 <p><%= r.content %></p>
                 <% if(user._id.equals(r.addedBy)) { %>
-                    <form action="/posts/<%= foundPost._id %>/<%= r._id %>?_method=PUT" method="POST">
+                    <form action="/posts/<%= foundPost._id %>/replies/<%= r._id %>?_method=PUT" method="POST">
                         <input type="submit" value="Delete Reply">
                     </form>
                     <a href="/posts/<%= foundPost._id %>/replies/<%= r._id %>">Edit Reply</a>

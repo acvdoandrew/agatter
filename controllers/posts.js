@@ -78,7 +78,7 @@ router.post('/posts/:id/replies', (req, res) => {
 });
 
 // Update Post due to deletion of Reply
-router.put('/posts/:id/:rId', (req, res) => {
+router.put('/posts/:id/replies/:rId', (req, res) => {
     const replyId = req.params.rId;
     Post.findById(req.params.id, (err, foundPost) => {
         // const foundReply = foundPost.replies.find(r => r._id === replyId);
@@ -90,7 +90,33 @@ router.put('/posts/:id/:rId', (req, res) => {
     });
 });
 
-// Edit Post due to edition of reply
-router.get('/posts')
+// Edit Reply
+router.get('/posts/:id/replies/:rId', (req, res) => {
+    const replyId = req.params.rId;
+    Post.findById(req.params.id, (err, foundPost) => {
+        const foundReply = foundPost.replies.find(r => r._id.equals(replyId));
+        res.render('posts/reply_edit.ejs', {
+            foundPost,
+            reply: foundReply
+        });
+    });
+});
+
+// Update Post due to edition of reply
+router.put('/posts/:id/replies/edit/:rId', (req, res) => {
+    req.body.addedBy = req.user._id;
+    const replyId = req.params.rId;
+    Post.findById(req.params.id, (err, foundPost) => {
+        const editedReplies = foundPost.replies.map(r => {
+            if(r._id.equals(replyId)) {
+                return req.body
+            } return r
+        });
+        foundPost.replies = editedReplies;
+        foundPost.save((err, savedPost) => {
+            res.redirect(`/posts/${req.params.id}`);
+        });
+    });
+});
 
 module.exports = router;
