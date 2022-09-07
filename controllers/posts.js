@@ -90,4 +90,7 @@ router.put('/posts/:id/:rId', (req, res) => {
     });
 });
 
+// Edit Post due to edition of reply
+router.get('/posts')
+
 module.exports = router;
