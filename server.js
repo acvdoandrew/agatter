@@ -64,7 +64,7 @@ app.get('/', (req, res) => {
 });
 
 app.use(usersRouter);
-app.use(isAuthenticated, postsRouter);
+app.use('/posts', isAuthenticated, postsRouter);
 
 // Tell the app to listen
 app.listen(PORT, () => {
