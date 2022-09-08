@@ -24,7 +24,7 @@ router.get('/posts', (req, res) => {
 
 // New Route
 router.get('/posts/new', (req, res) => {
-    Post.find({}, (err, posts) => {
+    Post.find({}).populate('addedBy').exec((err, posts) => {
         res.render('posts/new.ejs', {posts});
     });
 });
@@ -60,7 +60,7 @@ router.get('/posts/:id/edit', (req, res) => {
 
 // Show Route
 router.get('/posts/:id', (req, res) => {
-    Post.findById((req.params.id), (err, foundPost) => {
+    Post.findById((req.params.id)).populate('addedBy').populate('replies.addedBy').exec((err, foundPost) => {
         res.render('posts/show.ejs', {foundPost});
     });
 });
@@ -81,7 +81,6 @@ router.post('/posts/:id/replies', (req, res) => {
 router.put('/posts/:id/replies/:rId', (req, res) => {
     const replyId = req.params.rId;
     Post.findById(req.params.id, (err, foundPost) => {
-        // const foundReply = foundPost.replies.find(r => r._id === replyId);
         const filteredReplies = foundPost.replies.filter(r => !r._id.equals(replyId));
         foundPost.replies = filteredReplies;
         foundPost.save((err, savedPost) => {
