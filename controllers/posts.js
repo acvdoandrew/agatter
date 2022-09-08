@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 
 // New Route
 router.get('/new', (req, res) => {
-    Post.find({}).populate('addedBy').exec((err, posts) => {
+    Post.find({}).populate('addedBy').sort({ createdAt: 'desc' }).exec((err, posts) => {
         res.render('posts/new.ejs', {posts});
     });
 });
