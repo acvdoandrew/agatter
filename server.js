@@ -24,6 +24,7 @@ db.on('error', (err) => console.log(`MongoDB Error: ${err.message}`));
 
 // Body parser middleware
 app.use(express.urlencoded({ extended: false}));
+app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
 // Session middleware
