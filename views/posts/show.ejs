@@ -10,7 +10,7 @@
 <body>
     <div class="main-container">
         <%- include('../partials/nav.ejs') %>
-        <h2><%= foundPost.addedBy.username %>'s Post</h2>
+        <h2 class="post-header"><%= foundPost.addedBy.username %> Says</h2>
         <div class="content-wrapper">
             <p><%= foundPost.content %></p>
             
@@ -38,13 +38,13 @@
                 <div class="reply-box">
                         <form action="/posts/<%= foundPost._id%>/replies" method="POST">
                             <label>
-                                <textarea name="content" cols="30" rows="10" placeholder="Write your reply here"></textarea>
+                                <textarea name="content" cols="50" rows="2" placeholder="Write your reply here"></textarea>
                              </label><br>
                             <input type="submit" value="Reply">
                         </form>
                 </div>
             </div>
-        <a href="/posts">Back</a>
+        <a class="back-btn" href="/posts">Back</a>
     </div>
 </body>
 </html>
