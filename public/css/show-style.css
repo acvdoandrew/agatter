@@ -4,21 +4,29 @@
     font-family: 'Kanit', sans-serif;
 }
 
+.header {
+    margin-left: 10px;
+}
+
 .main-container {
+    display: flex;
+    flex-direction: column;
     background-color: rgb(51, 51, 51);
     min-height: 100vh;
     color: aliceblue;
+    gap: 10px;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
     background-color: rgb(30, 30, 30);
 }
 
 .main-navbar {
     display: flex;
-    align-content: center;
+    font-size: 25px;
 }
 
 .nav-links {

@@ -14,6 +14,7 @@
     background-color: rgb(51, 51, 51);
     min-height: 100vh;
     color: aliceblue;
+    gap: 10px;
 }
 
 .nav-container {
