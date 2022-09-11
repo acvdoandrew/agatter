@@ -10,19 +10,25 @@
 <body>
     <div class="main-container">
         <%- include('../partials/nav.ejs') %>
-        <a href="/posts/new">
-            <h2> New Post </h2>
-        </a>
-        <% posts.forEach(p => { %>
-            <a href="/posts/<%= p._id %>">
-                <div class="content-wrapper">
-                    <p>
-                        <span><strong><%= p.addedBy.username %></strong>:</span>
-                        <%= p.content %>
-                    </p>
-                </div>
+        <div class="new-btn-wrapper">
+            <a href="/posts/new">
+                <h2>NEW AGATT</h2>
             </a>
-        <% }) %>
+        </div>
+        <div class="posts-wrapper">
+            <% posts.forEach(p => { %>
+                <div class="content-wrapper">
+                    <a href="/posts/<%= p._id %>">
+                        <div class="agatte-wrapper">
+                            <p>
+                                <span><strong><%= p.addedBy.username %></strong>:</span>
+                                <%= p.content %>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            <% }) %>
+        </div>
     </div>
 </body>
 </html>
