@@ -12,21 +12,21 @@
         <%- include('../partials/nav.ejs') %>
         <div class="new-post-box">
             <form action="/posts" method="POST">
-                <textarea name="content" cols="30" rows="10" placeholder="What's happening?"></textarea>
-                <input type="submit" value="Agatte">
-                <a href="/posts">Cancel</a>
+                <textarea name="content" cols="50" rows="5" placeholder="What's happening?"></textarea><br>
+                <input class="submit-btn" type="submit" value="Agatte">
+                <a class="cancel-btn" href="/posts">Cancel</a>
             </form>
         </div>
-        <% posts.forEach(p => { %>
-            <a href="/posts/<%= p._id %>">
+        <div class="posts-wrapper">
+            <% posts.forEach(p => { %>
                 <div class="content-wrapper">
-                    <p>
-                        <span><strong><%= p.addedBy.username %></strong>:</span>
-                        <%= p.content %>
-                    </p>
+                    <a href="/posts/<%= p._id %>">
+                        <h3><%= p.addedBy.username %></h3>
+                        <p><%= p.content %></p>
+                    </a>
                 </div>
-            </a>
-        <% }) %>
+            <% }) %>
+        </div>
     </div>
 </body>
 </html>
