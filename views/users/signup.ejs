@@ -8,16 +8,20 @@
     <title>Welcome! | Agatter</title>
 </head>
 <body>
-    <%- include('../partials/nav.ejs') %>
-    <h2>Create an Account</h2>
-    <form action="/signup" method="POST">
-        <label>Username:
-            <input type="text" name="username">
-        </label><br>
-        <label>Password:
-            <input type="password" name="password">
-        </label><br>
-        <input type="submit" value="Sign Up">
-    </form>
+    <div class="main-container">
+        <%- include('../partials/nav.ejs') %>
+        <h2>Create an Account</h2>
+        <div class="form">
+            <form action="/signup" method="POST">
+                <label>Username:
+                    <input type="text" name="username">
+                </label><br>
+                <label>Password:
+                    <input type="password" name="password">
+                </label><br>
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+    </div>
 </body>
 </html>

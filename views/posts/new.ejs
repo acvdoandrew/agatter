@@ -8,23 +8,25 @@
     <title>Agatter</title>
 </head>
 <body>
-    <%- include('../partials/nav.ejs') %>
-    <div class="new-post-box">
-        <form action="/posts" method="POST">
-            <textarea name="content" cols="30" rows="10" placeholder="What's happening?"></textarea>
-            <input type="submit" value="Agatte">
-            <a href="/posts">Cancel</a>
-        </form>
+    <div class="main-container">
+        <%- include('../partials/nav.ejs') %>
+        <div class="new-post-box">
+            <form action="/posts" method="POST">
+                <textarea name="content" cols="30" rows="10" placeholder="What's happening?"></textarea>
+                <input type="submit" value="Agatte">
+                <a href="/posts">Cancel</a>
+            </form>
+        </div>
+        <% posts.forEach(p => { %>
+            <a href="/posts/<%= p._id %>">
+                <div class="content-wrapper">
+                    <p>
+                        <span><strong><%= p.addedBy.username %></strong>:</span>
+                        <%= p.content %>
+                    </p>
+                </div>
+            </a>
+        <% }) %>
     </div>
-    <% posts.forEach(p => { %>
-        <a href="/posts/<%= p._id %>">
-            <div class="content-wrapper">
-                <p>
-                    <span><strong><%= p.addedBy.username %></strong>:</span>
-                    <%= p.content %>
-                </p>
-            </div>
-        </a>
-    <% }) %>
 </body>
 </html>

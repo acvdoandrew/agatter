@@ -8,19 +8,21 @@
     <title>Agatter</title>
 </head>
 <body>
-    <%- include('../partials/nav.ejs') %>
-    <a href="/posts/new">
-        <h2> New Post </h2>
-    </a>
-    <% posts.forEach(p => { %>
-        <a href="/posts/<%= p._id %>">
-            <div class="content-wrapper">
-                <p>
-                    <span><strong><%= p.addedBy.username %></strong>:</span>
-                    <%= p.content %>
-                </p>
-            </div>
+    <div class="main-container">
+        <%- include('../partials/nav.ejs') %>
+        <a href="/posts/new">
+            <h2> New Post </h2>
         </a>
-    <% }) %>
+        <% posts.forEach(p => { %>
+            <a href="/posts/<%= p._id %>">
+                <div class="content-wrapper">
+                    <p>
+                        <span><strong><%= p.addedBy.username %></strong>:</span>
+                        <%= p.content %>
+                    </p>
+                </div>
+            </a>
+        <% }) %>
+    </div>
 </body>
 </html>

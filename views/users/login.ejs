@@ -8,21 +8,26 @@
     <title>Welcome! | Agatter</title>
 </head>
 <body>
-    <%- include('../partials/nav.ejs') %>
-    <h2>Log In</h2>
+    <div class="main-container">
 
-    <% if(error) { %>
-        <p style="color: red"><%= error %></p>
-    <% } %>
-
-    <form action="/login" method="POST">
-        <label>Username:
-            <input type="text" name="username">
-        </label><br>
-        <label>Password:
-            <input type="password" name="password">
-        </label><br>
-        <input type="submit" value="Log In">
-    </form>
+        <%- include('../partials/nav.ejs') %>
+        <h2>Log In</h2>
+        
+        <% if(error) { %>
+            <p style="color: red"><%= error %></p>
+        <% } %>
+        
+        <div class="form">
+            <form action="/login" method="POST">
+                <label>Username:
+                    <input type="text" name="username">
+                </label><br>
+                <label>Password:
+                    <input type="password" name="password">
+                </label><br>
+                <input type="submit" value="Log In">
+            </form>
+        </div>
+    </div>
 </body>
 </html>
