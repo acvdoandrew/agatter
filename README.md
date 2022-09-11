@@ -11,6 +11,7 @@ A full-stack web app to socialize and share anything that's happening in your li
 - Express
 - MongoDB
 - Mongoose
+- EJS
 
 ## Screenshots
 
