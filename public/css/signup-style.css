@@ -41,3 +41,30 @@ a, a:link, a:visited {
     color: aliceblue;
     text-decoration: none;
 }
+
+.signup-box {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    min-width: 20%;
+    align-self: center;
+    background-color: rgba(30, 30, 30, .5);
+    gap: 20px;
+    margin: 10px;
+    border-radius: 10%;
+}
+
+.signup-box label, .signup-box input {
+    margin: 5px;
+}
+
+.signup-header {
+    margin: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
