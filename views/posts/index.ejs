@@ -19,12 +19,8 @@
             <% posts.forEach(p => { %>
                 <div class="content-wrapper">
                     <a href="/posts/<%= p._id %>">
-                        <div class="agatte-wrapper">
-                            <p>
-                                <span><strong><%= p.addedBy.username %></strong>:</span>
-                                <%= p.content %>
-                            </p>
-                        </div>
+                            <h3><%= p.addedBy.username %></h3>
+                            <p><%= p.content %></p>
                     </a>
                 </div>
             <% }) %>

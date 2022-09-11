@@ -50,6 +50,7 @@ a, a:link, a:visited {
     padding: 15px;
     background-color: rgb(30, 30, 30);
     max-width: 50vw;
+    border-width: 5px;
     border-radius: 5%;
 }
 
@@ -59,7 +60,10 @@ a, a:link, a:visited {
     margin: 10px;
     max-width: 25vh;
     background-color: rgb(30, 30, 30);
-    
+    border-style: solid;
+    border-width: 4px;
+    border-color: rgb(30, 30, 30);
+    border-radius: 5%;
 }
 
 .new-btn-wrapper:hover a {
