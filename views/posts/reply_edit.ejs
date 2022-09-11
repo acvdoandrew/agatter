@@ -10,12 +10,14 @@
 <body>
     <div class="main-container">
         <%- include('../partials/nav.ejs') %>
-        <h2>Edit your Reply</h2>
-        <form action="/posts/<%= foundPost._id %>/replies/edit/<%= reply._id %>?_method=PUT" method="POST">
-            <textarea name="content" cols="30" rows="10"><%= reply.content %></textarea>
-            <input type="submit" value="Update this Post">
-            <a href="/posts/<%= foundPost._id %>">Cancel</a>
-        </form>
+        <div class="content-wrapper">
+            <h2>Edit your Reply</h2>
+            <form action="/posts/<%= foundPost._id %>/replies/edit/<%= reply._id %>?_method=PUT" method="POST">
+                <textarea name="content" cols="30" rows="3"><%= reply.content %></textarea>
+                <input type="submit" value="Update this Post">
+                <a href="/posts/<%= foundPost._id %>">Cancel</a>
+            </form>
+        </div>
     </div>
 </body>
 </html>
