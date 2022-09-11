@@ -22,6 +22,7 @@
 .main-navbar {
     display: flex;
     align-content: center;
+    font-size: 25px;
 }
 
 .nav-links {
