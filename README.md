@@ -21,7 +21,7 @@ A full-stack web app to socialize and share anything that's happening in your li
 
 ## Getting Started
 
-Coming Soon
+[Click Here!](https://agatter.herokuapp.com/) to see the deployed app.
 
 ## Next Steps
 
