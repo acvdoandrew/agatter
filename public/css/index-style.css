@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+* {
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
+}
+
+.header {
+    margin-left: 10px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(51, 51, 51);
+    min-height: 100vh;
+    color: aliceblue;
+    gap: 10px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    background-color: rgb(30, 30, 30);
+}
+
+.main-navbar {
+    display: flex;
+    font-size: 25px;
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none;
+    align-items: flex-end;
+    padding: 10px;
+    gap: 20px;
+}
+
+a, a:link, a:visited {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.posts-wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background-color: rgb(30, 30, 30);
+    max-width: 50vw;
+    border-width: 5px;
+    border-radius: 5%;
+}
+
+.new-btn-wrapper {
+    display: flex;
+    align-self: center;
+    margin: 10px;
+    max-width: 25vh;
+    background-color: rgb(30, 30, 30);
+    border-style: solid;
+    border-width: 4px;
+    border-color: rgb(30, 30, 30);
+    border-radius: 5%;
+    padding: 5px;
+}
+
+.new-btn-wrapper:hover {
+    background-color: azure;
+}
+
+.new-btn-wrapper:hover a {
+    color: rgb(30, 30, 30);
+}
