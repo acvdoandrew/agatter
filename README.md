@@ -15,7 +15,9 @@ A full-stack web app to socialize and share anything that's happening in your li
 
 ## Screenshots
 
-Coming Soon
+![Login Page](https://i.imgur.com/J4NFybw.png)
+![Landing Page](https://i.imgur.com/cNJISls.png)
+![Post Page](https://i.imgur.com/seQeEH2.png)
 
 ## Getting Started
 
@@ -23,4 +25,8 @@ Coming Soon
 
 ## Next Steps
 
-Coming Soon
+- Edit Boxes in Show Page to make the app cleaner with less pages.
+- Profile feature.
+- Direct Messages feature.
+- Ability to like posts.
+- Ability to upload images and videos.
